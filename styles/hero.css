@@ -229,8 +229,28 @@
     .hero {
         flex-direction: column-reverse;
 
+        & h1 {
+            margin-top: 2rem;
+        }
+
+        & h1 div {
+            display: inline-block;
+            overflow: hidden;
+            height: 2.5rem;
+            width: min-content;
+            vertical-align: bottom;
+        }
+
+        & h1 span {
+            display: block;
+
+            animation: slideUpMobile 5s infinite ease;
+        }
+
         & .buttons {
             flex-direction: column-reverse;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         &>div:nth-child(2) {
@@ -238,54 +258,119 @@
             width: 100%;
             max-width: 15.25rem;
             height: 15.25rem;
-    
-            & .content {
-                width: 100%;
-                height: 100%;
-                position: relative;
-            }
-    
-            & img {
-                position: absolute;
-                width: 100%;
-            }
-    
+
             & img[src*="ellipse"] {
                 width: 94%;
                 top: 3%;
                 left: 3%;
-    
-                transform: translateX(200%);
-    
+
+                transform: translateX(400%);
+
                 animation: slideIn 3s ease forwards;
             }
-    
+
             & img[src*="patins"] {
                 z-index: 1;
-    
-                transform: translateX(200%);
-    
+
+                transform: translateX(400%);
+
                 animation: slideIn 3s 200ms ease forwards;
             }
-    
+
             & img[src*='stars-1'] {
                 max-width: 2.75rem;
                 top: 35%;
                 z-index: 0;
-    
+
                 opacity: 0;
-                transform: translateX(400%);
+                transform: translateX(800%);
                 animation: slideIn 2s 800ms ease forwards, appear 100ms 800ms forwards;
             }
-    
+
             & img[src*='stars-2'] {
                 max-width: 1.25rem;
                 right: 0;
                 bottom: 30%;
-    
-                transform: translateX(400%);
+
+                transform: translateX(800%);
                 animation: slideIn 2.2s 800ms ease forwards;
             }
+        }
+    }
+
+    @keyframes slideUpMobile {
+
+        /* radical static */
+        0%,
+        22% {
+            transform: translateY(0);
+        }
+
+        /* divertida in */
+        23% {
+            transform: translateY(calc(-2.5rem - 7.5px));
+        }
+
+        25% {
+            transform: translateY(calc(-2.5rem + 5px));
+        }
+
+        27% {
+            transform: translateY(calc(-2.5rem - 2.5px));
+        }
+
+        29% {
+            transform: translateY(calc(-2.5rem + 2.5px));
+        }
+
+        /* divertida static */
+        33%,
+        55% {
+            transform: translateY(-2.5rem);
+        }
+
+        /* saudável in */
+        56% {
+            transform: translateY(calc(-5rem - 7.5px));
+        }
+
+        58% {
+            transform: translateY(calc(-5rem + 5px));
+        }
+
+        60% {
+            transform: translateY(calc(-5rem - 2.5px));
+        }
+
+        62% {
+            transform: translateY(calc(-5rem + 2.5px));
+        }
+
+        /* saudável static */
+        66%,
+        88% {
+            transform: translateY(-5rem);
+        }
+
+        /* radical in */
+        89% {
+            transform: translateY(calc(-7.5rem - 7.5px));
+        }
+
+        91% {
+            transform: translateY(calc(-7.5rem + 5px));
+        }
+
+        93% {
+            transform: translateY(calc(-7.5rem - 2.5px));
+        }
+
+        95% {
+            transform: translateY(calc(-7.5rem + 2.5px));
+        }
+
+        100% {
+            transform: translateY(-7.5rem);
         }
     }
 }
